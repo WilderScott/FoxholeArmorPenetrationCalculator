@@ -6,21 +6,27 @@ namespace FoxholeArmorPenetrationCalculator
         double ammoPenetrationModifier;
         double flankModifier = 1;
 
+        Tank[] tanks = new Tank[2];
+
         public Form1()
         {
             InitializeComponent();
+            MakeTanks();
+        }
+
+        private void MakeTanks()
+        {
+            for(int i = 0; i < tanks.Length; i++)
+            {
+                tanks[i] = new Tank();
+            }
+            tanks[0].DeclareTank("Silverhand", 27);
+            tanks[1].DeclareTank("Outlaw", 33);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == 0)
-            {
-                basePenetrationChance = 27;
-            }
-            else if (listBox1.SelectedIndex == 1)
-            {
-                basePenetrationChance = 33;
-            }
+            basePenetrationChance = tanks[listBox1.SelectedIndex].basePenetrationChance;
             UpdateChance();
         }
 
