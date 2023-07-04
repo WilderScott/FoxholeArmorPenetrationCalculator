@@ -55,9 +55,6 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 15;
-            this.listBox2.Items.AddRange(new object[] {
-            "40mm",
-            "68mm"});
             this.listBox2.Location = new System.Drawing.Point(85, 12);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(67, 94);
