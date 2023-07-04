@@ -7,11 +7,13 @@ namespace FoxholeArmorPenetrationCalculator
         double flankModifier = 1;
 
         Tank[] tanks = new Tank[2];
+        Ammo[] ammos = new Ammo[2];
 
         public Form1()
         {
             InitializeComponent();
             MakeTanks();
+            MakeAmmo();
         }
 
         private void MakeTanks()
@@ -20,8 +22,30 @@ namespace FoxholeArmorPenetrationCalculator
             {
                 tanks[i] = new Tank();
             }
+
             tanks[0].DeclareTank("Silverhand", 27);
             tanks[1].DeclareTank("Outlaw", 33);
+
+            for (int i = 0; i < tanks.Length; i++)
+            {
+                listBox1.Items.Add(tanks[i].name);
+            }
+        }
+
+        private void MakeAmmo()
+        {
+            for (int i = 0; i < ammos.Length; i++)
+            {
+                ammos[i] = new Ammo();
+            }
+
+            ammos[0].DeclareAmmo("40mm", 1);
+            ammos[1].DeclareAmmo("68mm", 1.5);
+
+            for (int i = 0; i < ammos.Length; i++)
+            {
+                listBox2.Items.Add(ammos[i].name);
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,14 +56,7 @@ namespace FoxholeArmorPenetrationCalculator
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndex == 0)
-            {
-                ammoPenetrationModifier = 1;
-            }
-            else if (listBox2.SelectedIndex == 1)
-            {
-                ammoPenetrationModifier = 1.5;
-            }
+            ammoPenetrationModifier = ammos[listBox2.SelectedIndex].ammoPenetrationModifier;
             UpdateChance();
         }
 
