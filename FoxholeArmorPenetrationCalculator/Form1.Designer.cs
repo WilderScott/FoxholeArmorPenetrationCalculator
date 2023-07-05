@@ -34,6 +34,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,10 +50,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(460, 206);
+            this.textBox1.Location = new System.Drawing.Point(331, 203);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(67, 23);
+            this.textBox1.Size = new System.Drawing.Size(155, 23);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "Penetration Chance: ";
             // 
             // listBox2
             // 
@@ -67,18 +69,18 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(372, 87);
+            this.checkBox1.Location = new System.Drawing.Point(320, 87);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 19);
+            this.checkBox1.Size = new System.Drawing.Size(173, 19);
             this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Flank?";
+            this.checkBox1.Text = "Flank + 70-90 degree angle?";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // trackBar1
             // 
             this.trackBar1.AccessibleName = "";
-            this.trackBar1.Location = new System.Drawing.Point(369, 41);
+            this.trackBar1.Location = new System.Drawing.Point(320, 36);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(158, 45);
@@ -88,19 +90,30 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(385, 12);
+            this.textBox2.Location = new System.Drawing.Point(338, 12);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(125, 23);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "Visible Armor Damage";
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(320, 112);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(137, 19);
+            this.checkBox2.TabIndex = 6;
+            this.checkBox2.Text = "Range <= 10 Meters?";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 241);
+            this.ClientSize = new System.Drawing.Size(498, 233);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.checkBox1);
@@ -123,5 +136,6 @@
         private CheckBox checkBox1;
         private TrackBar trackBar1;
         private TextBox textBox2;
+        private CheckBox checkBox2;
     }
 }

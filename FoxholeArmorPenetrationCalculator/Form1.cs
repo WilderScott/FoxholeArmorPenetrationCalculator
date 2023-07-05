@@ -4,15 +4,14 @@ namespace FoxholeArmorPenetrationCalculator
     {
         // UNCONFIRMED:
         // Does worst visual armor quality represent 0% armor, or maximum armor stripped? Right now, assuming it represents 0%
-        // What is the actual modifier for a 90 degree angle on a flank? Right now, assuming 2.5 times
-        // What is the range bonus? Right now, assuming no bonus (not true)
+        // https://foxhole.wiki.gg/wiki/Vehicle_Penetration_Chance information on angle and range modifiers perfectly correct? Right now, assuming yes
 
         double basePenetrationChance;
         double ammoPenetrationModifier;
-        double flankModifier = 1;
+        double flankModifier = 0;
         double visualArmorDamage = 0;
         double minimumArmorQuality;
-        double rangeModifier = 1;
+        double rangeModifier = 0;
 
         Tank[] tanks = new Tank[17];
         Ammo[] ammos = new Ammo[10];
@@ -102,28 +101,36 @@ namespace FoxholeArmorPenetrationCalculator
         {
             if (checkBox1.Checked)
             {
-                flankModifier = 2.5;
+                flankModifier = 40;
             }
             else
             {
-                flankModifier = 1;
+                flankModifier = 0;
+            }
+            UpdateChance();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                rangeModifier = 25;
+            }
+            else
+            {
+                rangeModifier = 0;
             }
             UpdateChance();
         }
 
         private void UpdateChance()
         {
-            double finalPenetrationChance = Math.Min(Math.Min(Math.Max(basePenetrationChance, visualArmorDamage), minimumArmorQuality) * ammoPenetrationModifier * flankModifier * rangeModifier, 100);
+            double finalPenetrationChance = Math.Min(Math.Min(Math.Max(basePenetrationChance, visualArmorDamage), minimumArmorQuality) * ammoPenetrationModifier + flankModifier + rangeModifier, 100);
            
             if (!(finalPenetrationChance == 0))
             {
-                textBox1.Text = finalPenetrationChance.ToString();
+                textBox1.Text = "Penetration Chance: " + finalPenetrationChance.ToString();
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
