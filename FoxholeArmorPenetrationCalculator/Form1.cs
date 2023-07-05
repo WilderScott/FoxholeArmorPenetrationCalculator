@@ -134,10 +134,5 @@ namespace FoxholeArmorPenetrationCalculator
                 textBox1.Text = "Penetration Chance: " + finalPenetrationChance.ToString();
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
