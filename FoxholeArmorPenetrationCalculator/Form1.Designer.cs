@@ -32,6 +32,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listBox1
@@ -72,11 +73,22 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 15;
+            this.listBox3.Location = new System.Drawing.Point(158, 12);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(67, 94);
+            this.listBox3.TabIndex = 4;
+            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 151);
+            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.textBox1);
@@ -94,5 +106,6 @@
         private TextBox textBox1;
         private ListBox listBox2;
         private CheckBox checkBox1;
+        private ListBox listBox3;
     }
 }
