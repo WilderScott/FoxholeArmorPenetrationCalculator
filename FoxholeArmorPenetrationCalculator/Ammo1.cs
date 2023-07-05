@@ -4,10 +4,12 @@
     {
         public string name;
         public double ammoPenetrationModifier;
-        public void DeclareAmmo(string name, double ammoPenetrationModifier)
+        public bool benefitsFromRangeAndAngle;
+        public void DeclareAmmo(string name, double ammoPenetrationModifier, bool benefitsFromRangeAndAngle)
         {
             this.name = name;
             this.ammoPenetrationModifier = ammoPenetrationModifier;
+            this.benefitsFromRangeAndAngle = benefitsFromRangeAndAngle;
         }
     }
 }

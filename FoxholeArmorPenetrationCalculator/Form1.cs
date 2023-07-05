@@ -12,6 +12,7 @@ namespace FoxholeArmorPenetrationCalculator
         double visualArmorDamage = 0;
         double minimumArmorQuality;
         double rangeModifier = 0;
+        bool benefitsFromRangeAndAngle;
 
         Tank[] tanks = new Tank[17];
         Ammo[] ammos = new Ammo[10];
@@ -61,16 +62,16 @@ namespace FoxholeArmorPenetrationCalculator
                 ammos[i] = new Ammo();
             }
 
-            ammos[0].DeclareAmmo("20mm", 1);
-            ammos[1].DeclareAmmo("30mm", 1);
-            ammos[2].DeclareAmmo("40mm", 1);
-            ammos[3].DeclareAmmo("68mm", 1.5);
-            ammos[4].DeclareAmmo("75mm", 1.5);
-            ammos[5].DeclareAmmo("94.5mm", 2);
-            ammos[6].DeclareAmmo("RPG", 1);
-            ammos[7].DeclareAmmo("Ignifist", 1.5);
-            ammos[8].DeclareAmmo("Direct ATRPG", 1.5);
-            ammos[9].DeclareAmmo("Indirect ATRPG", 2.5);
+            ammos[0].DeclareAmmo("20mm", 1, true);
+            ammos[1].DeclareAmmo("30mm", 1, true);
+            ammos[2].DeclareAmmo("40mm", 1, true);
+            ammos[3].DeclareAmmo("68mm", 1.5, true);
+            ammos[4].DeclareAmmo("75mm", 1.5, true);
+            ammos[5].DeclareAmmo("94.5mm", 2, true);
+            ammos[6].DeclareAmmo("RPG", 1, true);
+            ammos[7].DeclareAmmo("Ignifist", 1.5, true);
+            ammos[8].DeclareAmmo("Direct ATRPG", 1.5, true);
+            ammos[9].DeclareAmmo("Indirect ATRPG", 2.5, false);
 
             for (int i = 0; i < ammos.Length; i++)
             {
@@ -88,6 +89,7 @@ namespace FoxholeArmorPenetrationCalculator
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             ammoPenetrationModifier = ammos[listBox2.SelectedIndex].ammoPenetrationModifier;
+            benefitsFromRangeAndAngle = ammos[listBox2.SelectedIndex].benefitsFromRangeAndAngle;
             UpdateChance();
         }
 
@@ -125,12 +127,17 @@ namespace FoxholeArmorPenetrationCalculator
 
         private void UpdateChance()
         {
-            double finalPenetrationChance = Math.Min(Math.Min(Math.Max(basePenetrationChance, visualArmorDamage), minimumArmorQuality) * ammoPenetrationModifier + flankModifier + rangeModifier, 100);
+            double finalPenetrationChance = Math.Min(Math.Min(Math.Max(basePenetrationChance, visualArmorDamage), minimumArmorQuality) * ammoPenetrationModifier + (Convert.ToInt32(benefitsFromRangeAndAngle) * (flankModifier + rangeModifier)), 100);
            
             if (!(finalPenetrationChance == 0))
             {
                 textBox1.Text = "Penetration Chance: " + finalPenetrationChance.ToString();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

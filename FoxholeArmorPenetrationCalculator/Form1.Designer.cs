@@ -44,17 +44,18 @@
             this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(198, 214);
+            this.listBox1.Size = new System.Drawing.Size(198, 154);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(331, 203);
+            this.textBox1.Location = new System.Drawing.Point(324, 143);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(155, 23);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Penetration Chance: ";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // listBox2
             // 
@@ -62,7 +63,7 @@
             this.listBox2.ItemHeight = 15;
             this.listBox2.Location = new System.Drawing.Point(216, 12);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(98, 214);
+            this.listBox2.Size = new System.Drawing.Size(98, 154);
             this.listBox2.TabIndex = 2;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -112,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 233);
+            this.ClientSize = new System.Drawing.Size(491, 174);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.trackBar1);
