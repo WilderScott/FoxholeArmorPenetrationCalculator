@@ -41,7 +41,7 @@ namespace FoxholeArmorPenetrationCalculator
             tanks[7].DeclareTank("Flood Juggernaut", 23, 50);
             tanks[8].DeclareTank("Hasta", 22, 50);
             tanks[9].DeclareTank("Hatchet / Kranesca / Vulcan", 33, 33);
-            tanks[10].DeclareTank("King Gallant / Gallant", 50, 10);
+            tanks[10].DeclareTank("King Spire / Gallant", 50, 10);
             tanks[11].DeclareTank("Lance", 25, 50);
             tanks[12].DeclareTank("Noble Widow / Firebrand", 17, 50);
             tanks[13].DeclareTank("Pelekys", 35, 33);
